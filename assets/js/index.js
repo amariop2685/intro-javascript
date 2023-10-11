@@ -10,7 +10,7 @@ let inputSinopsis = document.getElementById("inputSinopsis");
 
 
 const btnAgregar = document.getElementById("btnAgregar");
-const btnBorrarTodo = document.getElementById("btnBorrarTodo");
+const btnBorrarTodo  = document.getElementById("btnBorrarTodo");
 
 const divPeliculas = document.getElementById("divPeliculas");
 const alertSinPeliculas = document.getElementById("alertSinpeliculas");
@@ -18,24 +18,30 @@ const alertSinPeliculas = document.getElementById("alertSinpeliculas");
 
 // let indexEditar = null;
 class Pelicula {
-    constructor(titulo, estreno, genero, imagen, sipnosis){
+    constructor(titulo, estreno, genero, imagen, sinopsis){
         this.titulo = titulo;
         this.estreno = estreno;
         this.genero = genero;
         this.imagen = imagen;
         this.sinopsis = sinopsis;
-
+    }
+}
         function guardarPelicula() {
             let titulo = inputTitulo.value;
             let estreno = inputEstreno.value;
             let genero = inputGenero.value;
             let imagen = inputImagen.value;
             let sinopsis = inputSinopsis.value;
-        console.log("titulo:", titulo);
-        console.log("estreno:", estreno);
-        console.log("genero:", genero);
-        console.log("imagen:", imagen);
-        console.log("sinopsis:", sinopsis);
+
+            let pelicula = new Pelicula(
+                titulo,
+                estreno,
+                genero,
+                imagen,
+                sinopsis
+            );
+            console.log(pelicula);
+            console.log("Entro funcion guardar pelicula");
 
         // if (indexEditar == null){
         //     console.log("Agregar pelicula");
@@ -47,19 +53,13 @@ class Pelicula {
         // console.log("Entro funcion guardar pelicula");
         // mostrarPeliculas();
     }
-
-}
-
-}
-
 function borrarTodo(){
     console.log("Entro a borrar todo");
-    mostrarPeliculas();
 }
 
-function mostrarPeliculas(){
-    console.log("Debería nostrar peliculas ...");
-}
+// function mostrarPeliculas(){
+    // console.log("Debería mostrar peliculas ...");
+// }
 
 btnAgregar.addEventListener("click", guardarPelicula);
 
